@@ -1,13 +1,13 @@
-const conta = {
-    email: 'nath@dio.bank',
-    password: '123456',
-    name: 'Nathaly Souza',
-    balance: 2000.00,
-    id: '1'
-}
+const account = {
+  username: 'admin',
+  email: 'admin',
+  password: 'admin',
+  balance: 1000,
+  id: '1',
+};
 
 export const api = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(conta)
-    }, 3000)
-})
+  setTimeout(() => {
+    resolve(account);
+  }, 3000);
+});

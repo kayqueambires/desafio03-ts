@@ -1,20 +1,23 @@
-import { useContext } from "react"
-import { Route, Routes } from "react-router-dom"
-import { AppContext } from "./components/AppContext"
-import Conta from "./pages/Conta"
-import ContaInfo from "./pages/ContaInfo"
-import Home from "./pages/Home"
+import { Routes, Route } from 'react-router-dom';
+import Account from './pages/Account';
+import Home from './pages/Home';
+import Info from './pages/Info';
+import { useContext } from 'react';
+import { AppContext } from './components/Context/AppContext';
 
 const MainRoutes = () => {
-    const { isLoggedIn } = useContext(AppContext)
+  const { isLoggedIn } = useContext(AppContext);
 
-    return(
-        <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/conta/:id' element={ isLoggedIn ? <Conta /> : <Home/> } />
-            <Route path='/infoconta' element={<ContaInfo />} />
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/info" element={<Info />} />
+      <Route
+        path="/account/:id"
+        element={isLoggedIn ? <Account /> : <Home />}
+      />
+    </Routes>
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;
